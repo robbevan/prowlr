@@ -5,7 +5,7 @@ begin
   require 'jeweler'
   Jeweler::Tasks.new do |gem|
     gem.name = "prowlr"
-    gem.summary = %Q{Yet another Prowl API gem}
+    gem.summary = %Q{Yet another Prowl API gem and command line interface}
     gem.email = "robbevan@xpt.com"
     gem.homepage = "http://github.com/robbevan/prowlr"
     gem.authors = ["Rob Bevan"]

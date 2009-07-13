@@ -4,4 +4,4 @@ require 'pp'
 
 config = ConfigStore.new("#{ENV['HOME']}/.prowlr")
 
-pp Prowlr.add(:apikey => config['apikey'], :event => 'Notification from prowlr.gem', :description => "Sent: #{Time.now}")
+pp Prowlr.add(:apikey => config['apikey'], :event => 'Notification from prowlr gem', :description => "Sent: #{Time.now}")
