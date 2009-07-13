@@ -11,9 +11,9 @@ About Prowl: https://prowl.weks.net and API: https://prowl.weks.net/api.php
 (Required: apikey and event or description. Optional: application, providerkey, priority. See API for details.)
 
 == Create instance and add event:
-prowlr = Prowlr.new('apikey')
-prowlr.add(:event => 'Notification from prowlr gem', :description => "Sent: #{Time.now}")
-=> {"code"=>"200", "remaining"=>"980", "resetdate"=>"1247481311"}
+`prowlr = Prowlr.new('apikey')`
+`prowlr.add(:event => 'Notification from prowlr gem', :description => "Sent: #{Time.now}")`
+`=> {"code"=>"200", "remaining"=>"980", "resetdate"=>"1247481311"}`
 
 == Verify:
 Prowlr.verify('apikey')
