@@ -4,10 +4,10 @@ require "optparse"
 require "pp"
 
 $:.unshift(File.join(File.dirname(__FILE__), "/../lib"))
-require 'prowl'
+require 'prowlr'
 
 options = {
-  :application => 'prowl.gem'
+  :application => 'prowlr.gem'
 }
 
 def die(msg)
@@ -20,7 +20,7 @@ OptionParser.new do |o|
 
   o.on("-a",
        "--application [APPLICATION]",
-       "Name of your application. Defaults to prowl.gem if omitted.") do |a|
+       "Name of your application. Defaults to prowlr.gem if omitted.") do |a|
     options[:application] = a.downcase
   end
   
@@ -51,7 +51,7 @@ apikey = ARGV[0]
 event = ARGV[1]
 description = ARGV[2]
 
-prowl = Prowl.new(apikey)
+prowlr = Prowlr.new(apikey)
 options.merge!(:apikey => apikey, :event => event, :description => description)
-response = prowl.add(options)
+response = prowlr.add(options)
 puts "Error: #{response['error'].inspect}" if response['error']

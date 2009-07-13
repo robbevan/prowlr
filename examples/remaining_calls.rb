@@ -1,7 +1,7 @@
-require File.join(File.dirname(__FILE__), '..', 'lib', 'prowl')
+require File.join(File.dirname(__FILE__), '..', 'lib', 'prowlr')
 require File.join(File.dirname(__FILE__), 'helpers', 'config_store')
 require 'pp'
 
-config = ConfigStore.new("#{ENV['HOME']}/.prowl")
+config = ConfigStore.new("#{ENV['HOME']}/.prowlr")
 
-pp Prowl.remaining_calls(config['apikey'])
+pp Prowlr.remaining_calls(config['apikey'])

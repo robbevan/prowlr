@@ -9,7 +9,7 @@ FakeWeb.allow_net_connect = false
 
 $LOAD_PATH.unshift(File.join(File.dirname(__FILE__), '..', 'lib'))
 $LOAD_PATH.unshift(File.dirname(__FILE__))
-require 'prowl'
+require 'prowlr'
 
 class Test::Unit::TestCase
 end
@@ -20,7 +20,7 @@ def fixture_file(filename)
   File.read(file_path)
 end
 
-def prowl_uri(uri)
+def prowlr_uri(uri)
   uri =~ /^https/ ? uri : "https://prowl.weks.net/publicapi/#{uri}"
 end
 
@@ -29,6 +29,6 @@ def encode_params(params)
 end
 
 def stub_get(uri, params, filename)
-  uri = "#{prowl_uri(uri)}?#{encode_params(params)}"
+  uri = "#{prowlr_uri(uri)}?#{encode_params(params)}"
   FakeWeb.register_uri(:get, uri, :body => fixture_file(filename))
 end

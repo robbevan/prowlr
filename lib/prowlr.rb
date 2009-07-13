@@ -2,13 +2,13 @@ require 'rubygems'
 gem 'httparty'
 require 'httparty'
 
-class Prowl
+class Prowlr
   include HTTParty
   format :xml
   
   base_uri 'https://prowl.weks.net/publicapi'
   
-  class ProwlError < StandardError; end
+  class ProwlrError < StandardError; end
 
   def initialize(apikey)
     @apikey = apikey
@@ -37,15 +37,15 @@ class Prowl
     end
 
     def add(options={})
-      options.merge!({:application => 'prowl gem'}) unless options[:application]
-      raise_errors(self.get('/add', :query => options)['prowl'])
+      options.merge!({:application => 'prowlr gem'}) unless options[:application]
+      raise_errors(get('/add', :query => options)['prowl'])
     end
 
     def raise_errors(response)
       unless error = response['error']
         response['success']
       else
-        raise ProwlError, error
+        raise ProwlrError, error
       end
     end
   end

@@ -4,10 +4,10 @@ require 'rake'
 begin
   require 'jeweler'
   Jeweler::Tasks.new do |gem|
-    gem.name = "prowl"
-    gem.summary = %Q{TODO}
+    gem.name = "prowlr"
+    gem.summary = %Q{Yet another Prowl API gem}
     gem.email = "robbevan@xpt.com"
-    gem.homepage = "http://github.com/robbevan/prowl"
+    gem.homepage = "http://github.com/robbevan/prowlr"
     gem.authors = ["Rob Bevan"]
     # gem is a Gem::Specification... see http://www.rubygems.org/read/chapter/20 for additional settings
   end
@@ -49,7 +49,7 @@ Rake::RDocTask.new do |rdoc|
   end
 
   rdoc.rdoc_dir = 'rdoc'
-  rdoc.title = "prowl #{version}"
+  rdoc.title = "prowlr #{version}"
   rdoc.rdoc_files.include('README*')
   rdoc.rdoc_files.include('lib/**/*.rb')
 end

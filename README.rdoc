@@ -1,6 +1,8 @@
-= prowl
+= prowlr
 
-Description goes here.
+Yet another Prowl API gem.
+
+
 
 == Copyright
 
