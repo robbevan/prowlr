@@ -2,7 +2,7 @@
 
 Gem::Specification.new do |s|
   s.name = %q{prowlr}
-  s.version = "0.2.0"
+  s.version = "0.2.1"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Rob Bevan"]
@@ -30,6 +30,7 @@ Gem::Specification.new do |s|
      "examples/valid_apikey.rb",
      "examples/verify.rb",
      "lib/prowlr.rb",
+     "prowlr.gemspec",
      "test/fixtures/bad_request.xml",
      "test/fixtures/invalid_apikey.xml",
      "test/fixtures/success.xml",
