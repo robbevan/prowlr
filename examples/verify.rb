@@ -4,4 +4,4 @@ require 'pp'
 
 config = ConfigStore.new("#{ENV['HOME']}/.prowlr")
 
-puts Prowlr.verify(config['apikey'])
+pp Prowlr.verify(config['apikey'])
