@@ -1,0 +1,57 @@
+#!/usr/bin/env ruby
+
+require "optparse"
+require "pp"
+
+$:.unshift(File.join(File.dirname(__FILE__), "/../lib"))
+require 'prowl'
+
+options = {
+  :application => 'prowl.gem'
+}
+
+def die(msg)
+  STDERR.puts(msg)
+  exit 1
+end
+
+OptionParser.new do |o|
+  o.banner = "\rUSAGE: #{$0} [options] [apikey] [event] [description]"
+
+  o.on("-a",
+       "--application [APPLICATION]",
+       "Name of your application. Defaults to prowl.gem if omitted.") do |a|
+    options[:application] = a.downcase
+  end
+  
+  o.on("-k",
+       "--providerkey [PROVIDER KEY]",
+       "Your provider API key. Only necessary if you have been whitelisted.") do |k|
+    options[:providerkey] = k
+  end
+
+  o.on("-p",
+       "--priority [PRIORITY]",
+       "Priority: an integer value ranging [-2, 2]: Very Low, Moderate, Normal, High, Emergency. Defaults to 0 if omitted.") do |p|
+    options[:priority] = p
+  end
+
+  o.on("-h", "--help", "Show help documentation") do |h|
+    puts o
+    exit
+  end
+end.parse!
+
+if ARGV.length < 3
+  STDERR.puts "You need to provide your apikey, an event and description"
+  STDERR.puts "USAGE: #{$0} [options] [apikey] [event] [description]"
+end
+
+apikey = ARGV[0]
+event = ARGV[1]
+description = ARGV[2]
+
+prowl = Prowl.new(apikey)
+options.merge!(:apikey => apikey, :event => event, :description => description)
+response = prowl.add(options)
+puts "Error: #{response['error'].inspect}" if response['error']
