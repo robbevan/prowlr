@@ -31,7 +31,7 @@ Prowlr.remaining_calls('apikey')
 Prowlr.reset_date('apikey')
 => Mon Jul 13 11:35:11 +0100 2009
 
-See http://github.com/jnunemaker/httparty/tree/master/examples
+See http://github.com/robbevan/prowlr/tree/master/examples
 
 == From the command line:
 prowlr -h
