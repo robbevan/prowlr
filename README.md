@@ -2,6 +2,8 @@
 
 Yet another [Prowl](https://prowl.weks.net/) [API](https://prowl.weks.net/api.php) gem. Includes a command line interface. Depends on (the very awesome) [httparty](http://railstips.org/2008/7/29/it-s-an-httparty-and-everyone-is-invited).
 
+Install: gem install robbevan-prowlr --source=http://gems.github.com/
+
 ### Add event:
     Prowlr.add(:apikey => 'apikey', :event => 'Notification from prowlr gem', :description => "Sent: #{Time.now}")
     => {"code"=>"200", "remaining"=>"981", "resetdate"=>"1247481311"}
