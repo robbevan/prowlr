@@ -28,7 +28,7 @@ def encode_params(params)
   params.map {|k,v| "#{URI.escape(k.to_s)}=#{URI.escape(v.to_s)}"}.join('&')
 end
 
-def stub_get(uri, params, filename)
+def stub_api_call(method, uri, params, filename)
   uri = "#{prowlr_uri(uri)}?#{encode_params(params)}"
-  FakeWeb.register_uri(:get, uri, :body => fixture_file(filename))
+  FakeWeb.register_uri(method, uri, :body => fixture_file(filename))
 end

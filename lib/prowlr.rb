@@ -38,7 +38,7 @@ class Prowlr
 
     def add(options={})
       options.merge!({:application => 'prowlr gem'}) unless options[:application]
-      raise_errors(get('/add', :query => options)['prowl'])
+      raise_errors(post('/add', :query => options)['prowl'])
     end
 
     def raise_errors(response)
