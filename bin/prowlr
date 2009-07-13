@@ -16,14 +16,20 @@ def die(msg)
 end
 
 OptionParser.new do |o|
-  o.banner = "\rUSAGE: #{$0} [options] [apikey] [event] [description]"
+  o.banner = "\rUSAGE: #{$0} [options] [apikey] [event]"
 
   o.on("-a",
        "--application [APPLICATION]",
        "Name of your application. Defaults to prowlr.gem if omitted.") do |a|
-    options[:application] = a.downcase
+    options[:application] = a
   end
   
+  o.on("-d",
+       "--description [DESCRIPTION]",
+       "Description of the event") do |d|
+    options[:description] = d
+  end
+
   o.on("-k",
        "--providerkey [PROVIDER KEY]",
        "Your provider API key. Only necessary if you have been whitelisted.") do |k|
@@ -42,16 +48,15 @@ OptionParser.new do |o|
   end
 end.parse!
 
-if ARGV.length < 3
-  STDERR.puts "You need to provide your apikey, an event and description"
-  STDERR.puts "USAGE: #{$0} [options] [apikey] [event] [description]"
+if ARGV.length < 2
+  STDERR.puts "You need to provide your apikey and an event"
+  STDERR.puts "USAGE: #{$0} [options] [apikey] [event]"
 end
 
 apikey = ARGV[0]
 event = ARGV[1]
-description = ARGV[2]
 
 prowlr = Prowlr.new(apikey)
-options.merge!(:apikey => apikey, :event => event, :description => description)
+options.merge!(:apikey => apikey, :event => event)
 response = prowlr.add(options)
 puts "Error: #{response['error'].inspect}" if response['error']

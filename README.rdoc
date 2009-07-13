@@ -35,11 +35,18 @@ See http://github.com/jnunemaker/httparty/tree/master/examples
 
 == From the command line:
 prowlr -h
-USAGE: ./prowlr [options] [apikey] [event] [description]
+USAGE: /opt/local/bin/prowlr [options] [apikey] [event]
     -a, --application [APPLICATION]  Name of your application. Defaults to prowlr.gem if omitted.
+    -d, --description [DESCRIPTION]  Description of the event
     -k, --providerkey [PROVIDER KEY] Your provider API key. Only necessary if you have been whitelisted.
     -p, --priority [PRIORITY]        Priority: an integer value ranging [-2, 2]: Very Low, Moderate, Normal, High, Emergency. Defaults to 0 if omitted.
     -h, --help                       Show help documentation
+
+== Post a url to your iPhone:
+prowlr apikey -d 'http://www.google.com' 'URL'
+
+== Post a phone number:
+prowlr apikey -d '0800 800 8000' 'Phone number'
 
 == Copyright
 
