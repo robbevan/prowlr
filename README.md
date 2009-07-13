@@ -27,7 +27,7 @@ Required: apikey and event or description. Optional: application, providerkey, p
 
 ### Reset date:
     Prowlr.reset_date('apikey')
-    => Mon Jul 13 11:35:11 +0100 2009
+    => Mon Jul 13 11:35:11 +0100 2009 (or nil if API key not valid)
 
 See [examples](http://github.com/robbevan/prowlr/tree/master/examples).
 
