@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<prowl>
+  <error code="400">Missing field: Event or description is required</error>
+</prowl>
