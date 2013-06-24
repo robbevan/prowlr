@@ -10,6 +10,8 @@ Gem::Specification.new do |s|
   s.default_executable = %q{prowlr}
   s.email = %q{robbevan@xpt.com}
   s.executables = ["prowlr"]
+  
+  s.add_dependency "httparty"
   s.extra_rdoc_files = [
     "LICENSE",
      "README.md"
